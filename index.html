@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>Driver - Taxi! Taxi!</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://pubnub.github.io/eon/lib/eon.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/lib/eon.css" />
+    
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Open Sans', sans-serif;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      #popup {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        z-index: 9999;
+        display: none;
+      }
+      #popup .text-wrap {
+        display: block;
+        top: 50%;
+        height: 32px;
+        line-height: 32px;
+        font-size: 32px;
+        color: #000;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+      }
+      .button {
+        border: 1px solid #111;
+        border-radius: 3px;
+        display: block;
+        margin: 42px auto;
+        line-height: 42px;
+        height: 42px;
+        opacity: .8;
+        width: 120px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .button:hover {
+        opacity: 1;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="popup">
+      <div class="text-wrap">
+        <p class="text">You're ride is on it's way!</p>
+        <div class="button" onclick="closeAlert()">Recogerlo.</div>
+      </div>
+    </div>
+    <div id='map'></div>
+    <script>
+
+      var channel = "UltraVans";
+
+      var pubnub = PUBNUB.init({
+        publish_key: 'pub-c-84ee927d-747d-4870-8732-d7af6f6842f2',
+        subscribe_key: 'sub-c-6d23bd3e-fa91-11e5-861b-02ee2ddab7fe'
+      });
+
+      pubnub.subscribe({
+        channel: channel,
+        message: function(message,env,channel){
+
+          if(message == 'hail') {
+
+            openAlert('Someone request a ride!');
+
+          }
+        }
+      });
+
+      var openAlert = function(text) {
+        $('.text').text(text);
+        $('#popup').show();
+      }
+
+      var closeAlert = function(text) {
+        $('#popup').hide();
+
+        pubnub.publish({
+          channel: channel,
+          message: 'pickup'
+        });
+
+      }
+
+      var map = eon.map({
+        id: 'map',
+        mb_id: 'ianjennings.lec77m70',
+        mb_token: 'pk.eyJ1IjoiaWFuamVubmluZ3MiLCJhIjoiZExwb0p5WSJ9.XLi48h-NOyJOCJuu1-h-Jg',
+        channel: 'rutgers-bus-data',
+        history: true,
+        pubnub: pubnub,
+        marker: function (latlng, data) {
+
+          var marker = new L.Marker(latlng, {
+            icon: L.icon({
+              iconUrl: 'http://i.imgur.com/VEVcNdY.png',
+              iconSize: [15, 30]
+            })
+          });
+
+          return marker;
+
+        }
+      });
+
+    </script>
+  </body>
+</html>
