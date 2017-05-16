@@ -6,14 +6,14 @@
         id        = "com.techware.callMyCabDriver"
         version   = "1.0.0">
 
-    <name>DriverApp</name>
+    <name>UltraVans Conductor</name>
 
     <description>
-        Call My Cab Driver application .
+        Aplicación para conductores de servicio de transporte UltraVans SA.
     </description>
 
-    <author href="http://techware.co.in/" email="info@techware.co.in">
-        Techware Solution
+    <author href="http://appsmarthotel.com/" email="alejandro.c@wifienter.net">
+        Alejandro Osorio
     </author>
         
         
