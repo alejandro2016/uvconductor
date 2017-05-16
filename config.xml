@@ -52,7 +52,7 @@
     <!-- Core plugins -->
 
         
-        <gap:plugin name="ionic-plugin-keyboard" source="npm" spec="2.2.1"/>
+
         <plugin name="cordova-plugin-device" spec="1.1.6" />
 <plugin name="cordova-plugin-device-orientation" spec="1.0.7" />
 <plugin name="cordova-plugin-dialogs" spec="1.3.3" />
