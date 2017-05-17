@@ -43,7 +43,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers'])
 				}, 1000);
 		}
 		
-	});
+		});
 	
 	
 	  $ionicPlatform.registerBackButtonAction(function(event) {

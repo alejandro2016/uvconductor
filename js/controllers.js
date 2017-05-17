@@ -6,9 +6,16 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
         disableBack: true
        });
 
+		function loopuno() {
 
-
-
+			setTimeout(function () {
+					console.log("ejecuto el loop");
+					WebService.load_trips();
+					loopuno();
+				}, 1000);
+		}
+		
+		
 //$cordovaNetwork,
 
  function set_net(status) {
