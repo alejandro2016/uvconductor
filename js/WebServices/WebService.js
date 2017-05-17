@@ -173,13 +173,13 @@
         }
           var promise = this.send_data( link,post_data);
           promise.then(function(data){
-				console.log("Active trip: "+$rootScope.active_trip);		  
-				console.log("Trips newrade: "+$rootScope.Trips.new_rade);
-				var count = Object.keys($rootScope.active_trip).length;
-				var count2 = Object.keys($rootScope.Trips.new_rade).length;
-				if (count2 > count) {
+				//console.log("Active trip: "+$rootScope.active_trip);		  
+				//console.log("Trips newrade: "+$rootScope.Trips.new_rade);
+				//var count = Object.keys($rootScope.active_trip).length;
+				//var count2 = Object.keys($rootScope.Trips.new_rade).length;
+				//if (count2 > count) {
 				playAudio('res/nueva.mp3');
-				}
+				//}
 			 $rootScope.Trips = data;
 		     $rootScope.active_trip = $rootScope.Trips.new_rade;
              $rootScope.completed_trip = $rootScope.Trips.complete;

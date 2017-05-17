@@ -6,32 +6,8 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
         disableBack: true
        });
 
-		function loopuno() {
-
-			setTimeout(function () {
-					console.log("ejecuto el loop");
-					WebService.load_trips();
-					loopuno();
-				}, 1000);
-		}
-		
 		
 //$cordovaNetwork,
-
-	function playAudio(url) {
-		// Play the audio file at url
-		var my_media = new Media(url,
-			// success callback
-			function () { console.log("playAudio():Audio Success"); },
-			// error callback
-			function (err) { console.log("playAudio():Audio Error: " + err); }
-		);
-
-		// Play audio
-		my_media.play();
-
-}
-
  function set_net(status) {
         if (status == 'online') {
             $('.net-error').hide();
@@ -82,6 +58,27 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
 
     }
 
+	$scope.loopuno = function () {
+
+		setTimeout(function () {
+				console.log("ejecuto el loop");
+				WebService.load_trips();
+				loopuno();
+		}, 1000);
+	}
+		
+
+
+	$scope.playAudio function (url) {
+
+		var my_media = new Media(url,
+			function () { console.log("playAudio():Audio Success"); },
+			function (err) { console.log("playAudio():Audio Error: " + err); }
+		);
+
+		my_media.play();
+
+	}
 
     // Perform the login action when the user submits the login form
     $scope.doLogin = function () {
