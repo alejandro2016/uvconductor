@@ -57,15 +57,6 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
         $state.go('app.my_ride');
 
     }
-
-	$rootScope.loopuno = function () {
-
-		setTimeout(function () {
-				console.log("ejecuto el loop");
-				WebService.load_trips();
-				$rootScope.loopuno();
-		}, 5000);
-	}
 	
 	$scope.loopuno = function () {
 
@@ -73,9 +64,14 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
 				console.log("ejecuto el loop");
 				WebService.load_trips();
 				$scope.loopuno();
-		}, 5000);
+		}, 10000);
 	}
-		
+
+	$scope.iniciarserv = function () {
+
+		alert ('Esta registrado en servicio. Recibira reservas de clientes.')
+
+	}			
 
 
 	$scope.playAudio = function (url) {
@@ -253,7 +249,6 @@ App.controller('landingCtrl', function ($cordovaOauth, $scope, $ionicModal, $tim
                     $scope.login.hide();
                     $state.go('app.my_ride');
                     WebService.load_trips();
-					$rootScope.loopuno();
 					}
 
             })
