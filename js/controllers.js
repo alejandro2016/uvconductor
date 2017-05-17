@@ -58,7 +58,7 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
 
     }
 
-	$scope.loopuno = function () {
+/*	$scope.loopuno = function () {
 
 		setTimeout(function () {
 				console.log("ejecuto el loop");
@@ -67,7 +67,7 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
 		}, 5000);
 	}
 		
-
+*/
 
 	$scope.playAudio = function (url) {
 
@@ -244,8 +244,8 @@ App.controller('landingCtrl', function ($cordovaOauth, $scope, $ionicModal, $tim
                     $scope.login.hide();
                     $state.go('app.my_ride');
                     WebService.load_trips();
-					$scope.loopuno();
-                }
+					WebService.loopuno();
+					}
 
             })
 

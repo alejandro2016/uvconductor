@@ -181,9 +181,9 @@
 								}*/
 								var cuenta = localStorage.getItem('cuenta');
 								if ($rootScope.Trips.new_rade !== undefined) {
-									console.log("Trips newrade: "+$rootScope.Trips.new_rade);
+									//console.log("Trips newrade: "+$rootScope.Trips.new_rade);
 									var count2 = Object.keys($rootScope.Trips.new_rade).length;
-									console.log("count2: "+count2 + " cuenta: " + cuenta);
+									console.log("count2: "+count2 + " cuenta: " + cuenta.length);
 								}
 								
 				}
@@ -210,10 +210,9 @@
 				console.log("ejecuto el loop");
 				WebService.load_trips();
 				WebService.loopuno();
-		}, 1000);
+		}, 5000);
 	}
-	
-	
+
 
 	   
     this.map_style=function(){
