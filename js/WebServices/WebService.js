@@ -147,11 +147,6 @@
      
      
      
-     
-     
-     
-     
-     
 		 
 	this.show_loading = function(){
 			$ionicLoading.show({
@@ -173,13 +168,20 @@
         }
           var promise = this.send_data( link,post_data);
           promise.then(function(data){
-				//console.log("Active trip: "+$rootScope.active_trip);		  
-				//console.log("Trips newrade: "+$rootScope.Trips.new_rade);
-				//var count = Object.keys($rootScope.active_trip).length;
-				//var count2 = Object.keys($rootScope.Trips.new_rade).length;
-				//if (count2 > count) {
-				playAudio('res/nueva.mp3');
-				//}
+				
+				var count = 0;
+				var count2 = 0;
+				if ($rootScope.active_trip !== undefined) {
+					console.log("Active trip: "+$rootScope.active_trip);
+					var count = Object.keys($rootScope.active_trip).length;
+				}
+				if ($rootScope.Trips.new_rade !== undefined) {
+					console.log("Trips newrade: "+$rootScope.Trips.new_rade);
+					var count2 = Object.keys($rootScope.Trips.new_rade).length;
+				}
+				if (count2 > count) {
+				playAudio('http://173.230.140.74/nueva.mp3');
+				}
 			 $rootScope.Trips = data;
 		     $rootScope.active_trip = $rootScope.Trips.new_rade;
              $rootScope.completed_trip = $rootScope.Trips.complete;
