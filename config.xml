@@ -50,7 +50,7 @@
     <!-- Plugins -->
 
     <!-- Core plugins -->
-		<gap:plugin name="cordova-plugin-media" />
+		<gap:plugin name="cordova-plugin-media" source="npm" spec="~2.2.0" />
         <gap:plugin name="cordova-plugin-geolocation" source="npm" spec="~2.4.0"/>
         <gap:plugin name="cordova-plugin-ionic-keyboard" source="npm"  />
         <gap:plugin name="cordova-plugin-device" source="npm" spec="~1.1.3" />
