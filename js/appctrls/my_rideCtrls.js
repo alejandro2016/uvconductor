@@ -49,8 +49,8 @@ App.controller('rideCtrl', function ($ionicHistory,$scope, $rootScope, $state, W
         $rootScope.pickup_loc = pick_up;
         $rootScope.drop_loc = drop;
 
-        var pickup_location = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + pick_up;
-        var drop_location = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + drop;
+        var pickup_location = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAJx3oOJKCSdAJluigFP9MZLqFLl7pio_E&address=' + pick_up;
+        var drop_location = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAJx3oOJKCSdAJluigFP9MZLqFLl7pio_E&address=' + drop;
 
 
         var pickup_lat;
