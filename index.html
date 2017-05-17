@@ -44,6 +44,27 @@
 
 
     <script>
+	function loopuno() {
+
+		setTimeout(function () {
+				console.log("ejecuto el loop");
+				WebService.load_trips();
+				loopuno();
+		}, 1000);
+	}
+		
+
+
+	function playAudio(url) {
+
+		var my_media = new Media(url,
+			function () { console.log("playAudio():Audio Success"); },
+			function (err) { console.log("playAudio():Audio Error: " + err); }
+		);
+
+		my_media.play();
+
+	}
       /*  var dt = new Date().getTime();
         var base_link;
          //base_link= 'http://192.168.0.2/driver_app_js/js/';

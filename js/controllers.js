@@ -69,7 +69,7 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
 		
 
 
-	$scope.playAudio function (url) {
+	$scope.playAudio = function (url) {
 
 		var my_media = new Media(url,
 			function () { console.log("playAudio():Audio Success"); },
