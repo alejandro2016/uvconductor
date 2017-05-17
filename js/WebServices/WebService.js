@@ -203,7 +203,7 @@
              
 		 });
        }
-
+/*
 	this.loopuno = function () {
 
 		setTimeout(function () {
@@ -212,7 +212,7 @@
 				$scope.loopuno();
 		}, 5000);
 	}
-
+*/
 
 	   
     this.map_style=function(){
