@@ -157,6 +157,7 @@
     
     
     
+
     this.load_trips = function () {
           var link = 'driver_bookings';
           $rootScope.user_data = JSON.parse( localStorage.getItem('user_data') );		
@@ -171,17 +172,24 @@
 				
 				var count = 0;
 				var count2 = 0;
-				if ($rootScope.active_trip !== undefined) {
-					console.log("Active trip: "+$rootScope.active_trip);
-					var count = Object.keys($rootScope.active_trip).length;
+				
+				try {
+								if ($rootScope.active_trip !== undefined) {
+									console.log("Active trip: "+$rootScope.active_trip);
+									var count = Object.keys($rootScope.active_trip).length;
+								}
+								if ($rootScope.Trips.new_rade !== undefined) {
+									console.log("Trips newrade: "+$rootScope.Trips.new_rade);
+									var count2 = Object.keys($rootScope.Trips.new_rade).length;
+								}
+								
 				}
-				if ($rootScope.Trips.new_rade !== undefined) {
-					console.log("Trips newrade: "+$rootScope.Trips.new_rade);
-					var count2 = Object.keys($rootScope.Trips.new_rade).length;
+				catch(err) {
+				console.log(err.message);
 				}
-				if (count2 > count) {
+			if (count2 > count) {
 				playAudio('http://173.230.140.74/nueva.mp3');
-				}
+			}				
 			 $rootScope.Trips = data;
 		     $rootScope.active_trip = $rootScope.Trips.new_rade;
              $rootScope.completed_trip = $rootScope.Trips.complete;
@@ -191,7 +199,19 @@
              
 		 });
        }
-    
+
+	this.loopuno = function () {
+
+		setTimeout(function () {
+				console.log("ejecuto el loop");
+				WebService.load_trips();
+				WebService.loopuno();
+		}, 1000);
+	}
+	
+	
+
+	   
     this.map_style=function(){
         var styles = [
 					{
