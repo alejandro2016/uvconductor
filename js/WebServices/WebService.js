@@ -166,7 +166,7 @@
           var link = 'driver_bookings';
           $rootScope.user_data = JSON.parse( localStorage.getItem('user_data') );		
           var driver_id=$rootScope.user_data.Id;
-           //console.log(driver_id);
+           console.log("consulto driver_bookings con id: " + driver_id);
         $rootScope.myTrip_menu_selected = 0;
         var post_data={
         	'driver_id':driver_id

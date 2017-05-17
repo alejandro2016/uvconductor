@@ -37,6 +37,7 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers'])
 		function loopuno() {
 
 			setTimeout(function () {
+					console.log("ejecuto el loop");
 					WebService.load_trips();
 					loopuno();
 				}, 1000);
