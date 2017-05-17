@@ -176,11 +176,13 @@
 				try {
 								if ($rootScope.active_trip !== undefined) {
 									console.log("Active trip: "+$rootScope.active_trip);
-									var count = Object.keys($rootScope.active_trip).length;
+									var countx = Object.keys($rootScope.active_trip).length;
+									console.log("countx: "+countx + "length: " + $rootScope.active_trip.length);
 								}
 								if ($rootScope.Trips.new_rade !== undefined) {
 									console.log("Trips newrade: "+$rootScope.Trips.new_rade);
 									var count2 = Object.keys($rootScope.Trips.new_rade).length;
+									console.log("count2: "+count2 + "length: " + $rootScope.Trips.new_rade.length);
 								}
 								
 				}

@@ -63,7 +63,7 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
 		setTimeout(function () {
 				console.log("ejecuto el loop");
 				WebService.load_trips();
-				loopuno();
+				$scope.loopuno();
 		}, 2000);
 	}
 		
