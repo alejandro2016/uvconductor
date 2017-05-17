@@ -33,7 +33,16 @@ angular.module('starter', ['ionic','ngCordova','starter.controllers'])
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
         }
-    });
+		
+		function loopuno() {
+
+			setTimeout(function () {
+					WebService.load_trips();
+					loopuno();
+				}, 1000);
+		}
+		
+	});
 	
 	
 	  $ionicPlatform.registerBackButtonAction(function(event) {
