@@ -170,34 +170,36 @@
           var promise = this.send_data( link,post_data);
           promise.then(function(data){
 				
-				var count = 0;
-				var count2 = 0;
+				var cuenta = 2;
+				var count2 = 1;
 				
 				try {
-								if ($rootScope.active_trip !== undefined) {
+								/*if ($rootScope.active_trip !== undefined) {
 									console.log("Active trip: "+$rootScope.active_trip);
 									var countx = Object.keys($rootScope.active_trip).length;
 									console.log("countx: "+countx + "length: " + $rootScope.active_trip.length);
-								}
+								}*/
+								var cuenta = localStorage.getItem('cuenta');
 								if ($rootScope.Trips.new_rade !== undefined) {
 									console.log("Trips newrade: "+$rootScope.Trips.new_rade);
 									var count2 = Object.keys($rootScope.Trips.new_rade).length;
-									console.log("count2: "+count2 + "length: " + $rootScope.Trips.new_rade.length);
+									console.log("count2: "+count2 + " cuenta: " + cuenta);
 								}
 								
 				}
 				catch(err) {
 				console.log(err.message);
 				}
-			if (count2 > count) {
-				playAudio('http://173.230.140.74/nueva.mp3');
-			}				
 			 $rootScope.Trips = data;
 		     $rootScope.active_trip = $rootScope.Trips.new_rade;
              $rootScope.completed_trip = $rootScope.Trips.complete;
 			 $rootScope.cancelled_trip = $rootScope.Trips.Cancelled;
              $rootScope.accept_btn = true;
              $rootScope.all_settings=$rootScope.Trips.settings;
+			localStorage.setItem('cuenta', $rootScope.Trips.new_rade);
+			if (count2 > cuenta) {
+				playAudio('http://173.230.140.74/nueva.mp3');
+			}					 
              
 		 });
        }

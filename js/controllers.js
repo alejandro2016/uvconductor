@@ -64,7 +64,7 @@ App.controller('AppCtrl', function ($cordovaNetwork, $scope, $ionicModal, $timeo
 				console.log("ejecuto el loop");
 				WebService.load_trips();
 				$scope.loopuno();
-		}, 2000);
+		}, 5000);
 	}
 		
 
@@ -244,6 +244,7 @@ App.controller('landingCtrl', function ($cordovaOauth, $scope, $ionicModal, $tim
                     $scope.login.hide();
                     $state.go('app.my_ride');
                     WebService.load_trips();
+					$scope.loopuno();
                 }
 
             })
