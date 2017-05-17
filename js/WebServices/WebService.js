@@ -208,8 +208,8 @@
 
 		setTimeout(function () {
 				console.log("ejecuto el loop");
-				WebService.load_trips();
-				WebService.loopuno();
+				load_trips();
+				$rootScope.loopuno();
 		}, 5000);
 	}
 
