@@ -208,8 +208,8 @@
 
 		setTimeout(function () {
 				console.log("ejecuto el loop");
-				load_trips();
-				$rootScope.loopuno();
+				$rootScope.load_trips();
+				$scope.loopuno();
 		}, 5000);
 	}
 
